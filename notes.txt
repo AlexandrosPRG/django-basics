@@ -1,0 +1,18 @@
+Exercise 3 - the first page
+Based on the example from the presentation, write a page that shows the string Hello World. The page should be assigned the address /hello/. Remember that the method to be executed should return an object of the HttpResponse type.
+
+Hint: you can use the following regular expression to assign the function to the corresponding address:
+
+
+
+Exercise 4 - second page
+Following the example from the presentation, write a page that will show a random number from the range between 0 and 100. The page should be assigned to the address /random/. The page should display Drawn number: <drawn number>, inserting the drawn number in the appropriate place. Remember that the method to be executed should return an object of the HttpResponse type.
+
+Hint: you can use the following regular expression to assign the function to the appropriate address:
+
+
+
+Exercise 5
+pridat parameter dynamyckej cesty do nahodneho generovania cisel, od-do, alebo počet
+
+

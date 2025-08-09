@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>Calculator page</h1>
+
+<form>
+  <input type="number" name="num1">
+  <input type="number" name="num2">
+
+  <input type="radio" id="plus" name="operation" value="+">
+  <label for="plus">Plus +</label><br>
+  <input type="radio" id="minus" name="operation" value="-">
+  <label for="minus">Minus -</label><br>
+  <input type="radio" id="nasobenie" name="operation" value="*">
+  <label for="nasobenie">Nasobenie</label><br>
+  <input type="radio" id="delenie" name="operation" value="/">
+  <label for="delenie">delenie</label><br>
+
+  <input type="submit" value="Spočítaj">
+</form>
+
+{% if result %}
+  <h3>vysledok: {{ result }}</h3>
+{% endif %}
+
+{% endblock %}

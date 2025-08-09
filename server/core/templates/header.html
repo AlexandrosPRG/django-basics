@@ -1,0 +1,13 @@
+<header>
+  <h3>Menu</h3>
+  <nav>
+    <a href="{% url 'h_page' %}">Home</a>
+    <a href="{% url 's_home' %}">Home Special</a>
+    <a href="{% url 'about_p' %}">About</a>
+    <a href="{% url 'r1' %} ">Random1</a>
+    <a href="{% url 'r2' 100 500 %}">Random2</a>
+    <a href="{% url 'r3' 100 1000 10 %}">Random3</a>
+    <a href="{% url 'new_test' %}">Redirect Test</a>
+    <a href="{% url 'calc' %}">Calculator</a>
+  </nav>
+</header>
