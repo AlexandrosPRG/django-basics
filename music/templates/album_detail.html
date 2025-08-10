@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ album.album_title }}</h1>
+<p>Release year: {{ album.release_year }}</p>
+<p>Rating: {{ album.rating }}</p>
+
+<h2>Songs</h2>
+<ul>
+  {% for s in album.songs.all %}
+    <li>
+      {{ s.title }}{% if s.duration %} ({{ s.duration }}){% endif %}
+    </li>
+  {% empty %}
+    <li>No songs yet</li>
+  {% endfor %}
+</ul>
+
+<hr>
+
+<h3>Add song</h3>
+{% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+
+<!-- cz: formulář posíláme na samostatnou URL /add-song/ -->
+<form method="post" action="{% url 'song_add' album.id %}">
+  {% csrf_token %}
+  <input type="text" name="title" placeholder="song title" required>
+  <!-- HTML time očekává HH:MM; TimeField snese 'HH:MM[:SS]' -->
+  <input type="time" name="duration" step="1" placeholder="HH:MM">
+  <button type="submit">Přidat</button>
+</form>
+
+<p><a href="{% url 'album_list' %}">← Back to albums</a></p>
+{% endblock %}

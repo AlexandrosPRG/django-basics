@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Create album</h1>
+
+{% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+
+<!-- cz: jednoduchý formulář pro vytvoření alba -->
+<form method="post">
+  {% csrf_token %}
+  <input type="text"   name="album_title"  placeholder="album title" required>
+  <input type="number" name="release_year" placeholder="release year" required>
+
+  <!-- cz: rating 0–5; pokud máš choices v modelu, můžeš je taky vygenerovat -->
+  <select name="rating">
+    <option value="0">0 stars</option>
+    <option value="1">1 star</option>
+    <option value="2">2 stars</option>
+    <option value="3">3 stars</option>
+    <option value="4">4 stars</option>
+    <option value="5">5 stars</option>
+  </select>
+
+  <button type="submit">Uložit</button>
+</form>
+{% endblock %}

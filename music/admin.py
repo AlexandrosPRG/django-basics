@@ -1,15 +1,17 @@
 from django.contrib import admin
-from .models import Article
-from .models import Album
+from .models import Album, Song
+
+class SongInline(admin.TabularInline):
+    model = Song
+    extra = 1  # cz: kolik prázdných řádků pro rychlé přidání
 
 @admin.register(Album)
 class AlbumAdmin(admin.ModelAdmin):
     list_display = ("album_title", "release_year", "rating")
-    list_filter = ("rating", "release_year")
-    search_fields = ("album_title",)
+    inlines = [SongInline]
 
-@admin.register(Article)
-class ArticleAdmin(admin.ModelAdmin):
-    list_display = ("title", "author", "status", "publish_date", "date_added")
-    list_filter = ("status", "publish_date", "removal_date", "date_added")
-    search_fields = ("title", "author", "content")
+@admin.register(Song)
+class SongAdmin(admin.ModelAdmin):
+    list_display = ("title", "album", "duration")
+    list_filter = ("album",)
+    search_fields = ("title",)

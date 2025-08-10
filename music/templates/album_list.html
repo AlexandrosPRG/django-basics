@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Albums</h1>
+
+<p><a href="{% url 'album_create' %}">+ Create new album</a></p>
+
+<ul>
+  {% for a in albums %}
+    <li>
+      <a href="{% url 'album_detail' a.id %}">
+        {{ a.album_title }} ({{ a.release_year }}) – rating: {{ a.rating }}
+      </a>
+    </li>
+  {% empty %}
+    <li>No albums yet</li>
+  {% endfor %}
+</ul>
+{% endblock %}
