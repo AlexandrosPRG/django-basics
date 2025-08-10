@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add band page</h1>
+
+<form method="post">
+  {% csrf_token %}
+  
+  <input type="text" name="name" placeholder="name" required>
+  <input type="number" name="year" placeholder="year" required>
+
+  <select name="genre" required>
+    {% for value, label in genres %}
+      <option value="{{ value }}">{{ label }}</option>
+    {% endfor %}
+  </select>
+
+  <input type="submit" value="ulož">
+</form>
+
+{% endblock %}
